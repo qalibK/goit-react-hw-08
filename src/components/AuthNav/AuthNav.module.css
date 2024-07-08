@@ -1,0 +1,7 @@
+.link {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+  font: 1.5em sans-serif;
+  font-weight: bold;
+}
