@@ -4,8 +4,13 @@
   transition: color 0.3s;
   font: 1.5em sans-serif;
   font-weight: bold;
+  transition: color 0.3s;
 }
-nav { 
-    display: flex;
-    gap: 20px;
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+.link:hover {
+  color: #0056b3;
 }

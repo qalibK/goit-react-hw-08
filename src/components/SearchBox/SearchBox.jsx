@@ -13,15 +13,17 @@ export default function SearchBox() {
   };
 
   return (
-    <div className={css.searchBox}>
-      <p>Find contacts by name</p>
-      <input
-        className={css.input}
-        value={filter}
-        onChange={setChangeFilter}
-        type="text
-      "
-      />
+    <div className={css.box}>
+      <div className={css.searchBox}>
+        <p>Find contacts by name and number</p>
+        <input
+          className={css.input}
+          value={filter}
+          onChange={setChangeFilter}
+          type="text
+        "
+        />
+      </div>
     </div>
   );
 }

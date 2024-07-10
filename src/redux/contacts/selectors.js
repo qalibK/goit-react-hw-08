@@ -5,11 +5,18 @@ export const selectContacts = (state) => state.contacts.items;
 export const selectLoading = (state) => state.contacts.loading;
 export const selectError = (state) => state.contacts.error;
 
+const normalize = (str) => str.replace(/-/g, "").toLowerCase();
+
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectFilter],
-  (contacts, filters) => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filters.toLowerCase())
-    );
+  (contacts, filter) => {
+    const normalizedFilter = normalize(filter);
+    return contacts.filter((contact) => {
+      const normalizedNumber = normalize(contact.number);
+      return (
+        contact.name.toLowerCase().includes(normalizedFilter) ||
+        normalizedNumber.includes(normalizedFilter)
+      );
+    });
   }
 );

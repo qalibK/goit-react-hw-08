@@ -13,8 +13,8 @@ export default function LoginForm() {
       .then(() => {
         toast.success("You are logged in");
       })
-      .catch((error) => {
-        toast.error(error.message);
+      .catch(() => {
+        toast.error("Something went wrong");
       });
     actions.resetForm();
   };
