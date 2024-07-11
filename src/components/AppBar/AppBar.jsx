@@ -12,7 +12,7 @@ export default function AppBar() {
   return (
     <header className={css.header}>
       <Navigation />
-      <Link to="/contacts" className={css.link}>
+      <Link to="/" className={css.link}>
         <MdContactPhone className={css.icon} />
       </Link>
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
