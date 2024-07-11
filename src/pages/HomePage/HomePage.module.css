@@ -1,3 +1,23 @@
 .box {
-    padding: 30px;
+  padding: 30px;
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.text {
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  width: 700px;
 }

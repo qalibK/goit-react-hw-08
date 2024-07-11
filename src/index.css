@@ -1,1 +1,19 @@
 @import "modern-normalize/modern-normalize.css";
+
+body {
+  background: linear-gradient(135deg, #3494e6, #ec6ead);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

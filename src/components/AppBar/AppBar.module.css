@@ -6,3 +6,18 @@
     padding: 20px;
     border-bottom: 1px solid #dee2e6;
 }
+
+.icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: #007bff;
+    margin-right: 20px;
+    width: 120px;
+    height: 120px;
+    margin: 0;
+}
+
+.link {
+     padding-left: 144px;
+     margin: 0;
+}

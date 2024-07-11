@@ -1,17 +1,16 @@
 import { IoPerson, IoCall } from "react-icons/io5";
 import { useDispatch } from "react-redux";
-import { deleteContact, editContact } from "../../redux/contacts/operations";
+import { deleteContact } from "../../redux/contacts/operations";
 import css from "./Contact.module.css";
 import ContactModal from "../ContactModal/ContactModal";
 import { useState } from "react";
+import EditModal from "../EditModal/EditModal";
 
 export default function Contact({ contact }) {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleEdit = () => {
-    dispatch(editContact(contact));
-  };
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [currentContact, setCurrentContact] = useState(contact);
 
   const handleDelete = () => {
     setIsModalOpen(true);
@@ -26,16 +25,25 @@ export default function Contact({ contact }) {
     setIsModalOpen(false);
   };
 
+  const handleEdit = () => {
+    setIsEditModalOpen(true);
+  };
+
+  const handleConfirmEdit = (updatedContact) => {
+    setCurrentContact(updatedContact);
+    setIsEditModalOpen(false);
+  };
+
   return (
     <>
       <div className={css.left}>
         <div className={css.info}>
           <IoPerson />
-          <p>{contact.name}</p>
+          <p>{currentContact.name}</p>
         </div>
         <div className={css.info}>
           <IoCall />
-          <p>{contact.number}</p>
+          <p>{currentContact.number}</p>
         </div>
       </div>
       <button type="button" onClick={handleDelete} className={css.btn}>
@@ -51,6 +59,10 @@ export default function Contact({ contact }) {
           onConfirm={handleConfirm}
           onCancel={handleCancel}
         />
+      )}
+
+      {isEditModalOpen && (
+        <EditModal contact={contact} onConfirm={handleConfirmEdit} />
       )}
     </>
   );

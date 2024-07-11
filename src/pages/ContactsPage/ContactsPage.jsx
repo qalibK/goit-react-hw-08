@@ -17,7 +17,7 @@ export default function ContactsPage() {
 
   return (
     <div className={css.box}>
-      <h1>ContactsPage</h1>
+      <h1 className={css.title}>ContactsPage</h1>
       <ContactForm />
       <div>{isLoading && "Request in progress..."}</div>
       <SearchBox />

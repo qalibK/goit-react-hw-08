@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { setAuthHeader } from "../auth/operations";
 import axios from "axios";
 
 export const fetchContacts = createAsyncThunk(
@@ -41,7 +42,14 @@ export const editContact = createAsyncThunk(
   "contacts/editContact",
   async (contact, thunkAPI) => {
     try {
-      const response = await axios.patch(`/contacts/${contact.id}`, contact);
+      const reduxState = thunkAPI.getState();
+      const savedToken = reduxState.auth.token;
+      setAuthHeader(savedToken);
+
+      const response = await axios.patch(`/contacts/${contact.id}`, {
+        name: contact.name,
+        number: contact.number,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
